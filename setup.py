@@ -7,12 +7,15 @@ from setuptools import (
 
 extras_require = {
     'test': [
+        "factory-boy==2.12.0",
         "pytest==5.4.1",
         "pytest-xdist",
         "tox==3.14.6",
     ],
     'lint': [
+        'black>=18.6b4,<19',
         "flake8==3.7.9",
+        "flake8-bugbear==20.1.4",
         "isort>=4.2.15,<5",
         "mypy==0.770",
         "pydocstyle>=3.0.0,<4",
@@ -55,7 +58,10 @@ setup(
     url='https://github.com/ethereum/eth-orm',
     include_package_data=True,
     install_requires=[
-        "eth-utils>=1,<2",
+        "eth-utils>=1.8.4,<2.0.0",
+        "eth-typing>=2.0.0,<3.0.0",
+        "SQLAlchemy==1.3.16",
+        "sqlalchemy-stubs==0.3",
     ],
     python_requires='>=3.6, <4',
     extras_require=extras_require,

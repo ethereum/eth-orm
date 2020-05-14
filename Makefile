@@ -28,6 +28,7 @@ lint:
 
 lint-roll:
 	isort --recursive eth_orm tests
+	black eth_orm tests
 	$(MAKE) lint
 
 test:
