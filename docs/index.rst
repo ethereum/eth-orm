@@ -1,7 +1,7 @@
-<PROJECT_NAME>
+eth-orm
 ==============================
 
-<SHORT_DESCRIPTION>
+SQLAlchemy models and utilities for loading the Ethereum blockchain into a relational data model
 
 Contents
 --------
@@ -9,7 +9,7 @@ Contents
 .. toctree::
     :maxdepth: 3
 
-    <MODULE_NAME>
+    eth_orm
     release_notes
 
 

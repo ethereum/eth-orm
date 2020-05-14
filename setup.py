@@ -7,14 +7,14 @@ from setuptools import (
 
 extras_require = {
     'test': [
-        "pytest==3.3.2",
+        "pytest==5.4.1",
         "pytest-xdist",
-        "tox>=2.9.1,<3",
+        "tox==3.14.6",
     ],
     'lint': [
-        "flake8==3.4.1",
+        "flake8==3.7.9",
         "isort>=4.2.15,<5",
-        "mypy==0.701",
+        "mypy==0.770",
         "pydocstyle>=3.0.0,<4",
     ],
     'doc': [
@@ -44,22 +44,22 @@ with open('./README.md') as readme:
 
 
 setup(
-    name='<PYPI_NAME>',
+    name='eth-orm',
     # *IMPORTANT*: Don't manually change the version here. Use `make bump`, as described in readme
     version='0.1.0-alpha.0',
-    description="""<PYPI_NAME>: <SHORT_DESCRIPTION>""",
+    description="""eth-orm: SQLAlchemy models and utilities for loading the Ethereum blockchain into a relational data model""",
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='The Ethereum Foundation',
     author_email='snakecharmers@ethereum.org',
-    url='https://github.com/ethereum/<REPO_NAME>',
+    url='https://github.com/ethereum/eth-orm',
     include_package_data=True,
     install_requires=[
         "eth-utils>=1,<2",
     ],
     python_requires='>=3.6, <4',
     extras_require=extras_require,
-    py_modules=['<MODULE_NAME>'],
+    py_modules=['eth_orm'],
     license="MIT",
     zip_safe=False,
     keywords='ethereum',
