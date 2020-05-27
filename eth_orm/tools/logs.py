@@ -9,13 +9,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from eth_orm.models import Header, Log, LogTopic, Topic
 from eth_orm.tools.filter import FilterParams
 
-from .factories import (
-    AddressFactory,
-    BlockFactory,
-    BlockTransactionFactory,
-    HeaderFactory,
-    LogFactory,
-)
+from .factories import AddressFactory, HeaderFactory, LogFactory
 
 
 @to_tuple
@@ -124,4 +118,4 @@ def construct_log(
 
     session.refresh(log)
 
-    return log  # type: ignore
+    return log
