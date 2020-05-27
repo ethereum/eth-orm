@@ -9,7 +9,7 @@ from sqlalchemy.sql import ClauseElement
 
 from eth_orm.models import Block, BlockTransaction, Header, Log, LogTopic, Receipt
 
-BlockIdentifier = BlockNumber
+BlockIdentifier = Union[BlockNumber, str]
 # TODO: update to python3.8
 # BlockIdentifier = Union[
 #     Literal['latest'],
@@ -26,7 +26,7 @@ FilterTopics = Union[
     Tuple[_Topic, _Topic, _Topic, _Topic],
 ]
 
-logger = logging.getLogger("cthaeh.filter")
+logger = logging.getLogger("eth_orm.filter")
 
 
 class FilterParams(NamedTuple):
