@@ -91,8 +91,20 @@ def filter_logs(session: orm.Session, params: FilterParams) -> Tuple[Log, ...]:
 
     query = (
         session.query(Log)  # type: ignore
-        .join(Receipt, and_(Receipt.transaction_hash == Log.transaction_hash, Receipt.block_header_hash == Log.block_header_hash))
-        .join(BlockTransaction, and_(BlockTransaction.transaction_hash == Receipt.transaction_hash, BlockTransaction.block_header_hash == Receipt.block_header_hash))
+        .join(
+            Receipt,
+            and_(
+                Receipt.transaction_hash == Log.transaction_hash,
+                Receipt.block_header_hash == Log.block_header_hash,
+            ),
+        )
+        .join(
+            BlockTransaction,
+            and_(
+                BlockTransaction.transaction_hash == Receipt.transaction_hash,
+                BlockTransaction.block_header_hash == Receipt.block_header_hash,
+            ),
+        )
         .join(Block, Block.header_hash == BlockTransaction.block_header_hash)
         .join(Header, Header.hash == Block.header_hash)
         .outerjoin(logtopic_0, Log.logtopics)
