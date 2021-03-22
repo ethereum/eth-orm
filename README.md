@@ -2,8 +2,6 @@
 
 [![Join the chat at https://gitter.im/ethereum/eth-orm](https://badges.gitter.im/ethereum/eth-orm.svg)](https://gitter.im/ethereum/eth-orm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://circleci.com/gh/ethereum/eth-orm.svg?style=shield)](https://circleci.com/gh/ethereum/eth-orm)
-[![PyPI version](https://badge.fury.io/py/eth-orm.svg)](https://badge.fury.io/py/eth-orm)
-[![Python versions](https://img.shields.io/pypi/pyversions/eth-orm.svg)](https://pypi.python.org/pypi/eth-orm)
 [![Docs build](https://readthedocs.org/projects/eth-orm/badge/?version=latest)](http://eth-orm.readthedocs.io/en/latest/?badge=latest)
    
 
@@ -13,8 +11,10 @@ Read more in the [documentation on ReadTheDocs](https://eth-orm.readthedocs.io/)
 
 ## Quickstart
 
+Clone the repository and install from source.
+
 ```sh
-pip install eth-orm
+pip install -e .
 ```
 
 ## Developer Setup
