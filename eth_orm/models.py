@@ -67,7 +67,6 @@ class Header(Base):
         CheckConstraint("block_number >= 0", name="_block_number_positive"),
         CheckConstraint("gas_limit >= 0", name="_gas_limit_positive"),
         CheckConstraint("gas_used >= 0", name="_gas_used_positive"),
-        CheckConstraint("difficulty >= 0", name="_difficulty_positive"),
         CheckConstraint("timestamp >= 0", name="_timestamp_positive"),
         Index("ix_hash_is_canonical", "hash", "is_canonical"),
         Index(
@@ -318,15 +317,13 @@ class Receipt(Base):
     )
     __mapper_args__ = {"confirm_deleted_rows": False}
 
-    block_header_hash = Column(
+    transaction_hash = Column(
         LargeBinary(32),
-        ForeignKey("blocktransaction.block_header_hash"),
         primary_key=True,
         index=True,
     )
-    transaction_hash = Column(
+    block_header_hash = Column(
         LargeBinary(32),
-        ForeignKey("blocktransaction.transaction_hash"),
         primary_key=True,
         index=True,
     )
@@ -397,10 +394,10 @@ class LogTopic(Base):
             "log_idx",
             "log_transaction_hash",
             "log_block_header_hash",
-            name="ix_idx_log_idx_log_transaction_hash_log_block_header_hash",
+            name="uix_logtopic_primary_key",
         ),
         Index(
-            "ix_idx_topic_topic_log_idx_log_transaction_hash_log_block_header_hash",
+            "ix_logtopic_filter_query_index",
             "idx",
             "topic_topic",
             "log_idx",
@@ -457,13 +454,11 @@ class Log(Base):
     idx = Column(Integer, primary_key=True, index=True)
     transaction_hash = Column(
         LargeBinary(32),
-        ForeignKey("receipt.transaction_hash"),
         primary_key=True,
         index=True,
     )
     block_header_hash = Column(
         LargeBinary(32),
-        ForeignKey("receipt.block_header_hash"),
         primary_key=True,
         index=True,
     )
